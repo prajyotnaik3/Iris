@@ -1,7 +1,7 @@
 #Imports
 import pandas as pd
 from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestClassifier
+from sklearn.naive_bayes import GaussianNB
 from sklearn.metrics import confusion_matrix, accuracy_score
 from sklearn.preprocessing import StandardScaler, Normalizer, MinMaxScaler
 
@@ -19,16 +19,14 @@ y = dataset.iloc[:, [4]].values
 
 #Preprocess the dataset
 #X = StandardScaler().fit_transform(X)
-#X = Normalizer().fit_transform(X)
+X = Normalizer().fit_transform(X)
 #X = MinMaxScaler().fit_transform(X)
 
 #Split data into training and testing split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.25, random_state = 0, stratify = y)
 
 #Train a classifier
-#classifier = RandomForestClassifier(n_estimators = 10, criterion = 'entropy', random_state = 0)
-classifier = RandomForestClassifier(n_estimators = 15, criterion = 'gini', random_state = 0)
-
+classifier = GaussianNB()
 classifier.fit(X_train, y_train.ravel())
 
 #Predcitions

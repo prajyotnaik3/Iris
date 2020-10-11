@@ -10,6 +10,7 @@ dataset = pd.read_csv(r'data/iris.csv')
 print(dataset.head(5))
 
 #NA values in the dataset
+print("Count of NA values:")
 print(dataset.isna().sum())
 
 #Filter independent and dependent variables
@@ -34,5 +35,6 @@ y_pred = classifier.predict(X_test)
 
 #Results
 cm = confusion_matrix(y_test, y_pred)
+print("Confusion matrix:")
 print(cm)
 print("Accuracy:", accuracy_score(y_test, y_pred))
