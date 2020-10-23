@@ -6,7 +6,8 @@ from sklearn.metrics import confusion_matrix, accuracy_score
 from sklearn.preprocessing import StandardScaler, Normalizer, MinMaxScaler
 
 #Read the dataset
-dataset = pd.read_csv(r'data/iris.csv')
+dataset = pd.read_csv(r'data\iris.csv')
+#dataset = pd.read_csv(r'data\iris_clean.csv')
 print(dataset.head(5))
 
 #NA values in the dataset

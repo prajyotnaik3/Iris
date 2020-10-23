@@ -6,7 +6,8 @@ from sklearn.metrics import confusion_matrix, accuracy_score
 from sklearn.preprocessing import StandardScaler, Normalizer, MinMaxScaler
 
 #Read the dataset
-dataset = pd.read_csv(r'data/iris.csv')
+#dataset = pd.read_csv(r'data\iris.csv')
+dataset = pd.read_csv(r'data\iris_clean.csv')
 print(dataset.head(5))
 
 #NA values in the dataset
@@ -28,7 +29,7 @@ X_train = scaler.fit_transform(X_train)
 X_test = scaler.transform(X_test)
 
 #Train a classifier
-classifier = LinearSVC(multi_class = 'ovr')
+classifier = LinearSVC(multi_class = 'ovr', dual = False)
 classifier.fit(X_train, y_train.ravel())
 
 #Predcitions

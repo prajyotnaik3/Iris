@@ -6,7 +6,8 @@ from sklearn.metrics import confusion_matrix, accuracy_score
 from sklearn.preprocessing import StandardScaler, Normalizer, MinMaxScaler
 
 #Read the dataset
-dataset = pd.read_csv(r'data/iris.csv')
+#dataset = pd.read_csv(r'data\iris.csv')
+dataset = pd.read_csv(r'data\iris_clean.csv')
 print(dataset.head(5))
 
 #NA values in the dataset
@@ -29,7 +30,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.25, rand
 
 #Train a classifier
 #classifier = RandomForestClassifier(n_estimators = 10, criterion = 'entropy', random_state = 0)
-classifier = RandomForestClassifier(n_estimators = 15, criterion = 'gini', random_state = 0)
+classifier = RandomForestClassifier(n_estimators = 2, max_depth = 2, criterion = 'gini', random_state = 0)
 
 classifier.fit(X_train, y_train.ravel())
 

@@ -57,3 +57,4 @@ for feature in ['sepal_length_clean', 'sepal_width_clean', 'petal_length_clean',
     plt.title('Histogram for {}'.format(feature))
     plt.show()
     
+dataset.to_csv(r"data\iris_clean.csv", index = False)
